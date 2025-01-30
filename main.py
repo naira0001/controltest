@@ -2,7 +2,7 @@
 from aiogram import executor
 from config import bot, dp, Admins
 import logging
-from handlers import commands,FsmStore
+from handlers import commands,FsmStore, send_products
 from buttons import start
 from db import main_db
 
@@ -22,6 +22,7 @@ async def on_shutdown(_):
 
 commands.register_commands_handlers(dp)
 FsmStore.register_handlers_fsm_store(dp)
+send_products.register_handlers(dp)
 
 
 
